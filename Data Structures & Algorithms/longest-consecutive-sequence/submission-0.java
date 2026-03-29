@@ -1,0 +1,25 @@
+class Solution {
+
+    private boolean search(int[] nums, int target){
+        for(int num: nums){
+            if(num==target){
+                return true;
+            }
+        }
+        return false;
+    }
+    public int longestConsecutive(int[] nums) {
+        int longest =0;
+        for(int num : nums){
+            int current = num;
+            int length=1;
+
+            while(search(nums, current+1)){
+                current++;
+                length++;
+            }
+            longest=Math.max(longest, length);
+        }
+        return longest;
+    }
+}
